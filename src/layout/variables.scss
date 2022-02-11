@@ -1,0 +1,23 @@
+//colors
+$blue: #6cb2ec;
+$dark-blue: #0e6fff;
+$black: #272727;
+$white: #f5f5f5;
+
+//spacing
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+//border-radius
+$borderRadius: 0.75rem;
+
+//header height
+$headerHeight: 6.25rem;
+
+@mixin breakpoint($points) {
+  @if $points == md {
+    @media (min-width: 48em /*768px*/) {
+      @content;
+    }
+  }
+}

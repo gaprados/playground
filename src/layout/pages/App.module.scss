@@ -1,0 +1,17 @@
+@import "../variables.scss";
+
+.app {
+  background: purple;
+  height: 100vh;
+  padding-top: $headerHeight + 1.25rem;
+}
+
+.content {
+  background: red;
+  height: 100vh;
+}
+
+.test {
+  background: green;
+  height: 100vh;
+}

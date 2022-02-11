@@ -1,0 +1,151 @@
+@import "../variables.scss";
+
+.header {
+  background: $black;
+  width: 100%;
+  height: $headerHeight;
+  padding: 0 1.5rem;
+  position: fixed;
+  top: 0;
+
+  transition: 0.2s ease all;
+
+  @include breakpoint(md) {
+    padding: 0 3rem;
+  }
+
+  &__content {
+    overflow: hiddens;
+    color: $white;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+
+    &__logo {
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: $white;
+    }
+
+    &__nav {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20rem;
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      background: rgba($black, 0.9);
+      backdrop-filter: blur(2px);
+      transform: translate(100%);
+      transition: 0.2s ease transform;
+
+      @include breakpoint(md) {
+        transform: none;
+        flex-direction: row;
+        align-items: center;
+        background: transparent;
+        width: auto;
+        height: 100%;
+        position: static;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $spacing-lg;
+
+        @include breakpoint(md) {
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 0;
+          margin-right: calc(0.5rem + #{$spacing-md});
+        }
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: $spacing-lg;
+
+            @include breakpoint(md) {
+              margin-bottom: 0;
+              margin-right: $spacing-md;
+            }
+          }
+
+          &.isActive {
+            color: $dark-blue;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0.75rem 1.25rem;
+            border-radius: $borderRadius;
+            transition: 0.3s ease all;
+
+            &:hover {
+              color: $blue;
+            }
+          }
+        }
+      }
+
+      button {
+        cursor: pointer;
+        outline: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: $borderRadius;
+        font-size: 1rem;
+        font-family: inherit;
+        background: $blue;
+        color: $black;
+        border: 1px solid transparent;
+        transition: 0.2s ease all;
+
+        &:hover {
+          border-color: $blue;
+          background: rgba($blue, 0.1);
+          color: $blue;
+        }
+
+        &:active {
+          border-color: $blue;
+          background: linear-gradient(rgba($blue, 0.2), rgba($blue, 0.3));
+          color: $blue;
+        }
+      }
+
+      &.isMenu {
+        transform: translate(30%);
+      }
+    }
+
+    &__toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      transition: 0.3s ease all;
+      position: relative;
+
+      &:hover {
+        color: $blue;
+      }
+
+      @include breakpoint(md) {
+        display: none;
+      }
+    }
+  }
+}
